@@ -106,11 +106,44 @@
     }
     .images-container {
         display: flex;
+        flex-wrap: wrap;
         gap: 20px;
+        justify-content: center;
+    }
+    .images-container div {
+        flex: 1 1 100%;
+        max-width: 300px;
+        text-align: center;
     }
     .images-container img {
-        max-width: 300px;
+        max-width: 100%;
         height: auto;
+    }
+
+    /* 모바일 최적화 */
+    @media (max-width: 600px) {
+        .input {
+            width: 100%;
+            padding: 0.8rem;
+        }
+        .enter-label {
+            left: 10px;
+        }
+        .btn-box {
+            top: 0.5em;
+        }
+        .btn-search {
+            width: 1.5em;
+            height: 1.5em;
+        }
+        .images-container div {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+        .images-container img {
+            max-width: 100%;
+            height: auto;
+        }
     }
   </style>
 </head>
@@ -133,16 +166,16 @@
     <br>
     <div class="images-container">
       <div>
-        <img src="src/뱅뱅뱅.jpg">
+        <img src="src/뱅뱅뱅.jpg" alt="뱅뱅뱅">
         <h1>뱅뱅뱅</h1>
-        <h3>#신남 # 성수 #빅뱅</h3>
-        <input type="button" value="자세히 보기">
+        <h3>#신남 #성수 #빅뱅</h3>
+        <a href="index.html"><input type="button" value="자세히 보기"></a>
       </div>
       <div>
-        <img src="src/뱅뱅뱅.jpg">
+        <img src="src/뱅뱅뱅.jpg" alt="뱅뱅뱅">
         <h1>뱅뱅뱅</h1>
-        <h3>#신남 # 성수 #빅뱅</h3>
-        <input type="button" value="자세히 보기">
+        <h3>#신남 #성수 #빅뱅</h3>
+        <a href="index.html"><input type="button" value="자세히 보기"></a>
       </div>
     </div>
   </div>
