@@ -60,49 +60,11 @@
         <div class="input-container">
             <input type="text" id="genre" name="genre" placeholder="장르" required>
         </div>
-        <button type="submit">Submit</button>
+        
     </form>
-    <h3>소중한 기억을 기록해주세요.</h3>
+    
+    <a href="/search.html">
+        <button type="submit">Submit</button></a>
 
-    <script>
-        document.getElementById('dataForm').addEventListener('submit', function(event) {
-            event.preventDefault();  // 폼이 제출되는 것을 방지
-
-            const title = document.getElementById('title').value;
-            const artist = document.getElementById('artist').value;
-            const genre = document.getElementById('genre').value;
-
-            const data = {
-                title: title,
-                artist: artist,
-                genre: genre
-            };
-
-            fetch('http://localhost:8000/api/v1/filly/music/', {  // 여기에 실제 API 엔드포인트를 넣으세요
-                method: 'POST',  // 요청 방식을 POST로 설정
-                headers: {
-                    'Content-Type': 'application/json'  // 요청 본문이 JSON 형식임을 명시
-                },
-                body: JSON.stringify(data)  // 데이터를 JSON 문자열로 변환하여 본문에 포함
-            })
-            .then(response => {
-                if (response.status === 201) {
-                    return response.json();  // 응답을 JSON으로 파싱
-                } else {
-                    throw new Error('Failed to create music entry');
-                }
-            })
-            .then(data => {
-                console.log('Success:', data);
-                alert('성공적으로 노래가 추가되었습니다!');
-                // 성공적으로 응답을 받은 후의 작업을 여기에 작성
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                alert('노래 추가에 실패했습니다.');
-                // 요청 실패 시의 작업을 여기에 작성
-            });
-        });
-    </script>
 </body>
 </html>
